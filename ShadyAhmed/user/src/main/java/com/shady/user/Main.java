@@ -32,7 +32,7 @@ public class Main {
             String roleInput = scanner.nextLine();
             Role role = roleInput.equalsIgnoreCase("EMPLOYEE") ? Role.EMPLOYEE : Role.CUSTOMER;
 
-            // إنشاء المستخدم
+       
             User user = new User(name, email, password, phoneNumber, address, cardNumber, balance, role);
 
             user.saveToDatabase();
