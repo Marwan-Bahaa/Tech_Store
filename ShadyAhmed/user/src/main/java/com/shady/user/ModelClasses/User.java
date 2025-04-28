@@ -8,7 +8,7 @@ import java.sql.SQLException;
 
 public class User {
 
-    
+
     // Attributes
     protected String name;
     protected String email;
@@ -18,14 +18,14 @@ public class User {
     protected BanckCard card;
     protected Role role;
 
-    public User(String name, String email, String password, String phoneNumber, String address, String cardNumber,double balance, Role role) {
+    public User(String name, String email, String password, String phoneNumber, String address, String cardNumber,double balance) {
         this.name = name;
         this.email = email;
         this.phoneNumber = phoneNumber;
         this.address = address;
         this.card = new BanckCard(cardNumber, balance); 
         this.password=new Password(password);
-        this.role = role;
+        this.role = Role.CUSTOMER; 
     }
  public void setAddress(String address) {
      this.address = address;
