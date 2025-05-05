@@ -1,4 +1,7 @@
 package com.shady.user.ModelClasses;
+
+import java.util.LinkedList;
+
 public class DLL {
     public Node head=null;
     public Node tail=null;
@@ -40,7 +43,7 @@ public class DLL {
         Cheak cheak =new Cheak();
        
         Node temp = head ;
-        int i=1;
+        int i=0;
             while (temp!=null) {
               
                 if (temp.data.employeeId==id) {
@@ -58,7 +61,24 @@ public class DLL {
         return cheak;
 
     }
-   
+    public Employee login(String email, String password) {
+        Node temp = head;
+        while (temp != null) {
+            if (temp.data.getEmail().equals(email)  ) 
+            {//temp.data.checkPassword(password)
+                if (temp.data.checkPassword(password)) {
+                    return temp.data;
+                } else {
+                   throw new IllegalArgumentException("Invalid password");
+                }
+               
+            }
+            temp = temp.next;
+        }
+        
+         throw new IllegalArgumentException("Invalid email"); // Invalid email or password
+    }
+    
     
    public Node search(int pos)
     {
@@ -79,7 +99,7 @@ public class DLL {
     
     
     
-    public   void addAtPosition(Employee data, int index)
+    void addAtPosition(Employee data, int index)
     {
         
         if(!cheakposistion(index)) 
@@ -123,7 +143,7 @@ public class DLL {
 
     }
    
-    public  void deleteHead()
+    void deleteHead()
     {
 
         if (head==null) return;
@@ -135,7 +155,7 @@ public class DLL {
         head.prev=null;
 
     }
-    public  void deleteTail()
+    void deleteTail()
     {
         if (head==null) return;
         if (count()-1==0) {
@@ -146,14 +166,14 @@ public class DLL {
         tail.next=null;
 
     }
-    public   void deleteAtPos(int id)
+    void deleteAtPos(int id)
     {   
         if (!whereposistion(id).found) {
             
             System.out.print("not found");
             return;
         }
-        int pos = whereposistion(id).Position-1;
+        int pos = whereposistion(id).Position;
         if(head==null) return;
        
         if(pos == 0 ) 
@@ -170,12 +190,15 @@ public class DLL {
         temp.prev.next=temp.next;
 
     }
-   
+    void sortAscending()
+    {   
+      
+    }
    
 
 
     
-    public void display()
+    void display()
     {
         if(count()==0)
         {
@@ -204,5 +227,17 @@ public class DLL {
         System.out.println(" =========================");
 
     }
+
+
+  public  DLL  toLinkedList(){
+    DLL list = new DLL();
+        Node current = head; 
+        while (current != null) {
+            list.Append(current.data); 
+            current = current.next; 
+        }
+        return list;
+    }
+
 
 }

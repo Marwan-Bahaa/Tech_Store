@@ -45,18 +45,32 @@ public class Main {
         } while (flage);
 
         System.out.println("Exit...");*/
-         Employee em1= new Employee("text", "text", "text", "text", "text", "text", 564,  "text", "text");
-         Employee em2= new Employee("text", "text", "text", "text", "text", "text", 564,  "text", "text");
-         Employee em3= new Employee("text", "text", "text", "text", "text", "text", 564,  "text", "text");
-    
-       
-        Employee_service.addEmployee(em1);
+       System.out.println("Hello, World!");
+        String text="+";
+        char ch= text.charAt(0);
+        
+        Employee em1= new Employee(text, text, text, text, text, text, ch, null, text, text);
+        Employee em2= new Employee(text, text, text, text, text, text, ch, null, text, text);
+        Employee em3= new Employee("shady","ahmed@email", "1234", text, text, text, ch, null, text, text);
+        Employee_service employee_service= new Employee_service();
+         Employee_service.addEmployee(em1);
         Employee_service.addEmployee(em2);
         Employee_service.addEmployee(em3);
-       System.out.print(Employee_service.LinarsearchEmployee(em3.getEmployeeId()));
-       Employee_service.storeEmployee.display();
-       Employee_service.deleteEmpolyee(em3.getEmployeeId());
+       /*  Employee_service.storeEmployee.display();
+        System.out.println("__________________________");
+       System.out.println(Employee_service.linearSearchEmployee(em3.employeeId));
+       System.out.println("__________________________");
+      // Employee_service.deleteEmployee(em3.employeeId);
        
-       Employee_service.storeEmployee.display();
+       Employee_service.storeEmployee.display();*/
+     
+       try {
+        System.out.println(Employee_service.login("ahmed@email", "1234").display());
+       System.out.println(Employee_service.login("ahmed@email", "1244").getName());
+       System.out.println(Employee_service.login("ahmed@eail", "1244").getName());
+       } catch (Exception e) {
+           System.out.println(e.getMessage());
+           
+       } 
     }
 }

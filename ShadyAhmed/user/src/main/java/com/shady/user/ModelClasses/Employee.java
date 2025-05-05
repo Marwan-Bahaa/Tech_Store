@@ -5,7 +5,7 @@ public class Employee extends User{
     protected String department;
    
 
-    public Employee(String name, String email, String password, String phoneNumber, String address, String cardNumber,double balance, String employeeId, String department) {
+    public Employee(String name, String email, String password, String phoneNumber, String address, String cardNumber,double balance, Role role, String employeeId, String department) {
         super( name,  email,  password,  phoneNumber,  address,  cardNumber, balance) ;
  
         this.employeeId = new Random().nextInt(9999) + 1000; 
@@ -29,7 +29,18 @@ public class Employee extends User{
     public void setDepartment(String department) {
         this.department = department;
     }
-
+public String display() {
+        return "Employee{" +
+                "name='" + name + '\'' +
+                ", email='" + email + '\'' +
+                ", phoneNumber='" + phoneNumber + '\'' +
+                ", address='" + address + '\'' +
+                ", cardNumber='" + card.getCardNumber() + '\'' +
+                ", employeeId=" + employeeId +
+                ", department='" + department + '\'' +
+                ", role=" + role +
+                '}';
+    }
 
    
 
